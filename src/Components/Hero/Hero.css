@@ -1,0 +1,25 @@
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(191, 142, 42, 0.1), rgba(191, 142, 42, 0.1)),
+    url(../../Assets/hero.svg) no-repeat center bottom/cover;
+  background-size: cover;
+  background-position: bottom; /* Afișează partea de jos a imaginii */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  text-align: left; /* Aliniază textul la stânga */
+  max-width: 800px;
+  margin-top: -50px;
+  margin-left: 500px; /* Elimină margin auto pentru aliniere la stânga */
+  line-height: 1.5; /* Spațiu între rânduri pentru tot textul */
+  font-size: 1.2rem;
+}
+
+.hero-text .btn {
+  margin-top: 20px; /* Mută butonul mai jos față de text */
+}
