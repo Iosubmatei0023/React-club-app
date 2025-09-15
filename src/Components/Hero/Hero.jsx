@@ -3,6 +3,12 @@ import "./Hero.css";
 import dark_arrow from "../../assets/dark_arrow.svg";
 
 const Hero = () => {
+  const scrollToSlider = () => {
+    const sliderSection = document.getElementById('sports-slider');
+    if (sliderSection) {
+      sliderSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div className="hero container">
       <div className="hero-text">
@@ -16,7 +22,7 @@ const Hero = () => {
           <br />
           și trăiește competiția la intensitate maximă.
         </p>
-        <button className="btn get-started">
+        <button className="btn get-started" onClick={scrollToSlider}>
           Intră în joc
           <img src={dark_arrow} alt="" />
         </button>

@@ -65,53 +65,51 @@ export default function Slider() {
     return () => window.removeEventListener("resize", adjustMargin);
   }, []);
   return (
-    <main>
-      <div className="container">
-        <Swiper
-          modules={[Pagination]}
-          grabCursor
-          initialSlide={2}
-          centeredSlides
-          slidesPerView="auto"
-          speed={800}
-          slideToClickedSlide
-          pagination={{ clickable: true }}
-          breakpoints={{
-            320: { spaceBetween: 40 },
-            650: { spaceBetween: 30 },
-            1000: { spaceBetween: 20 },
-          }}
-          onSwiper={(swiper) => {
-            swiperWrappedRef.current = swiper.wrappedEl;
-          }}
-        >
-          {slidesData.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <img src={slide.imgSrc} alt={slide.title} />
-              <div className="title">
-                <h1>{slide.title}</h1>
+    <main id="sports-slider" className="slider-root">
+      <Swiper
+        modules={[Pagination]}
+        grabCursor
+        initialSlide={2}
+        centeredSlides
+        slidesPerView="auto"
+        speed={800}
+        slideToClickedSlide
+        pagination={{ clickable: true }}
+        breakpoints={{
+          320: { spaceBetween: 40 },
+          650: { spaceBetween: 30 },
+          1000: { spaceBetween: 20 },
+        }}
+        onSwiper={(swiper) => {
+          swiperWrappedRef.current = swiper.wrappedEl;
+        }}
+      >
+        {slidesData.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <img src={slide.imgSrc} alt={slide.title} />
+            <div className="title">
+              <h1>{slide.title}</h1>
+            </div>
+            <div className="content">
+              <div className="text-box">
+                <p>{slide.description}</p>
               </div>
-              <div className="content">
-                <div className="text-box">
-                  <p>{slide.description}</p>
+              <div className="footer">
+                <div className="category">
+                  {slide.categories.map((category, idx) => (
+                    <span key={idx} style={{ "--i": idx + 1 }}>
+                      {category};
+                    </span>
+                  ))}
                 </div>
-                <div className="footer">
-                  <div className="category">
-                    {slide.categories.map((category, idx) => (
-                      <span key={idx} style={{ "--i": idx + 1 }}>
-                        {category};
-                      </span>
-                    ))}
-                  </div>
-                  <button>
-                    <span className="label">More...</span>
-                  </button>
-                </div>
+                <button>
+                  <span className="label">More...</span>
+                </button>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </main>
   );
 }

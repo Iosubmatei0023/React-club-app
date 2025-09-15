@@ -4,10 +4,9 @@ import logo from "../../assets/logo.svg";
 
 const Navbar = () => {
   return (
-    <nav className="container">
+    <nav className="navbar container">
       <img src={logo} alt="" className="logo" />
       <ul>
-        <li>Acasă</li>
         <li>Despre noi</li>
         <li>Realizări</li>
         <li>Echipa</li>

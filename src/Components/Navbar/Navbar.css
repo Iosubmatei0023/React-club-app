@@ -1,24 +1,40 @@
-nav {
+.navbar {
   width: 100%;
   /*background: #333;*/
   color: #fff;
-  height: 70px;
-  padding: 0 0;
+  height: 140px;
+  /* Do not override padding here; let .container from index.css add side paddings */
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   z-index: 10;
 }
-.logo {
-  width: 180px; /*230*/
-  margin-top: 30px; /*37*/
+
+/* Bias navbar to the right without affecting other sections */
+.navbar.container {
+  padding-left: 8%;
+  padding-right: 16%;
 }
-nav ul li {
+.logo {
+  height: 180px;
+  width: auto;
+  margin-right: 200px; /* Add space between logo and first menu item */
+}
+.navbar ul {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; /* keep items on one line */
+  white-space: nowrap; /* prevent wrapping of long labels */
+}
+.navbar ul li {
   display: inline-block;
   list-style: none;
-  margin: 5px 20px;
-  font-size: 16px;
+  margin: 12px 28px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }

@@ -1,6 +1,7 @@
 .hero {
   width: 100%;
   min-height: 100vh;
+  padding-top: 180px; /* offset for fixed navbar height so content isn't hidden under it */
   background: linear-gradient(rgba(191, 142, 42, 0.1), rgba(191, 142, 42, 0.1)),
     url(../../Assets/hero.svg) no-repeat center bottom/cover;
   background-size: cover;
@@ -13,13 +14,51 @@
 
 .hero-text {
   text-align: left; /* Aliniază textul la stânga */
-  max-width: 800px;
-  margin-top: -50px;
-  margin-left: 500px; /* Elimină margin auto pentru aliniere la stânga */
-  line-height: 1.5; /* Spațiu între rânduri pentru tot textul */
+  width: 100%;
+  max-width: 1000px; /* Slightly increased to accommodate padding */
+  margin: 0;
+  padding-left: 52%;
+  line-height: 1.5;
   font-size: 1.2rem;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .hero-text .btn {
-  margin-top: 20px; /* Mută butonul mai jos față de text */
+  position: relative;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.hero-text .btn:hover {
+  color: #fff;
+}
+
+.hero-text .btn::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background-color: #ff000d;
+  border-radius: 50%;
+  z-index: -1;
+  transition: width 0.6s cubic-bezier(0, 0, 0.2, 1),
+              height 0.6s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.hero-text .btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
